@@ -3,11 +3,13 @@
 This directory turns the repository into a path-first handbook instead of a
 single chapter stream.
 
-## Available paths
+## Primary guides
 
-- [Conceptual Breadth](./conceptual-breadth.md): for readers who want the big
-  picture first.
-- [Implementation Depth](./implementation-depth.md): for builders who want the
-  systems and patterns view early.
-- [Contributor and Curation](./contributor-and-curation.md): for contributors
-  who want to edit, curate, or extend the repository.
+- [Reader](./reader.md): for people who want a high-level understanding and a
+  recommended set of pages rather than a strict sequence.
+- [Practitioner](./practitioner.md): for people who want to use agent tools and
+  skills in real work without becoming professional agent builders.
+- [Builder](./builder.md): for engineers who want a linear path into
+  professional agent design and implementation.
+- [Contributor](./contributor.md): for people who want to edit, curate, or
+  extend the repository itself.

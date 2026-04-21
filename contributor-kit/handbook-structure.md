@@ -1,0 +1,61 @@
+# Handbook Structure
+
+This document holds the internal structure and reference notes that support the
+handbook. It is intentionally separate from the top-level README so the front
+door can stay lightweight.
+
+## Current status
+
+- The top-level handbook lanes are now scaffolded in the repository.
+- Imported reference material remains available under `references/`.
+- Audience guides and contributor templates are in place for future content
+  work.
+- Most topic pages are still to be authored.
+
+## What this handbook covers
+
+- Agent system fundamentals and terminology
+- Reusable agent patterns and workflow mechanisms
+- Systems concerns such as context, protocols, evaluation, and reliability
+- Ecosystem comparisons across global and Chinese agent tooling
+- Story-led case studies for major agent product categories
+- Fast-moving radar and publication extensions
+
+## Repository structure
+
+| Path | Purpose |
+| --- | --- |
+| `foundations/` | Core concepts, terminology, and mental models |
+| `patterns/` | Reusable agent design patterns and mechanisms |
+| `systems/` | Production-minded systems topics such as evaluation and interoperability |
+| `ecosystem/` | Topic-first comparisons of tools, models, and platforms |
+| `case-studies/` | Story-led examples for major agent archetypes |
+| `radar/` | Fast-moving market and protocol tracking |
+| `reading-paths/` | Audience-first entry points into the handbook |
+| `publications/` | Metadata and structure for external reading extensions |
+| `contributor-kit/` | Templates and editorial scaffolding for contributions |
+| `references/` | Imported source material and planning documents |
+
+## Editorial direction
+
+- Path-first, not chapter-first
+- Story-led pages that move from problem to architecture to tradeoffs
+- Topic-first ecosystem coverage with explicit global and Chinese lanes
+- Repo-native content outside `references/`, with source-aware adaptation
+
+## Reference base and reuse boundary
+
+The current reference base includes the upstream `Hello-Agents` materials under
+[`references/hello-agents-main/`](../references/hello-agents-main/).
+
+That material is being used here as source input for curation and planning, not
+as the final published structure of this repository. The strategy document that
+guided this first-pass scaffold lives at
+[`references/global-agent-repository-strategy.md`](../references/global-agent-repository-strategy.md).
+
+If content is later adapted from upstream material, attribution and license
+constraints should be reviewed before publication.
+
+Upstream source:
+
+- [datawhalechina/Hello-Agents](https://github.com/datawhalechina/Hello-Agents)

@@ -10,9 +10,10 @@ revise handbook pages without guessing the editorial shape of the repository.
 - Contribution workflow notes
 - Review checklists and quality gates
 
-## Current starter asset
+## Current starter assets
 
 - [Article Template](./templates/article-template.md)
+- [Handbook Structure](./handbook-structure.md)
 
 ## Working standard
 

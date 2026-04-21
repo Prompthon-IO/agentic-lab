@@ -36,85 +36,40 @@ systems are designed, compared, built, evaluated, and operated in practice.
 It is structured as a global field guide rather than a single linear course.
 
 The current repository now separates evergreen handbook content, fast-moving
-ecosystem coverage, reader paths, and contributor scaffolding so the project
-can grow without collapsing back into one long chapter stream.
+ecosystem coverage, audience guides, and contributor scaffolding so the
+project can grow without collapsing back into one long chapter stream.
 
-## Current Status
+## Start Here
 
-- The top-level handbook lanes are now scaffolded in the repository.
-- Imported reference material remains available under `references/`.
-- Reader paths and contributor templates are in place for future content work.
-- Most topic pages are still to be authored.
+Choose the guide that matches what you want to do first.
 
-## What This Handbook Covers
-
-- Agent system fundamentals and terminology
-- Reusable agent patterns and workflow mechanisms
-- Systems concerns such as context, protocols, evaluation, and reliability
-- Ecosystem comparisons across global and Chinese agent tooling
-- Story-led case studies for major agent product categories
-- Fast-moving radar and publication extensions
-
-## Reading Paths
-
-| Path | Best for | Start |
-| --- | --- | --- |
-| Conceptual Breadth | Readers who want the big picture first | [`reading-paths/conceptual-breadth.md`](./reading-paths/conceptual-breadth.md) |
-| Implementation Depth | Builders who care about patterns and systems design | [`reading-paths/implementation-depth.md`](./reading-paths/implementation-depth.md) |
-| Contributor and Curation | Contributors shaping the handbook and its coverage | [`reading-paths/contributor-and-curation.md`](./reading-paths/contributor-and-curation.md) |
-
-## Repository Structure
-
-| Path | Purpose |
-| --- | --- |
-| `foundations/` | Core concepts, terminology, and mental models |
-| `patterns/` | Reusable agent design patterns and mechanisms |
-| `systems/` | Production-minded systems topics such as evaluation and interoperability |
-| `ecosystem/` | Topic-first comparisons of tools, models, and platforms |
-| `case-studies/` | Story-led examples for major agent archetypes |
-| `radar/` | Fast-moving market and protocol tracking |
-| `reading-paths/` | Guided entry points for different reader types |
-| `publications/` | Metadata and structure for external reading extensions |
-| `contributor-kit/` | Templates and editorial scaffolding for contributions |
-| `references/` | Imported source material and planning documents |
-
-## Editorial Direction
-
-- Path-first, not chapter-first
-- Story-led pages that move from problem to architecture to tradeoffs
-- Topic-first ecosystem coverage with explicit global and Chinese lanes
-- Repo-native content outside `references/`, with source-aware adaptation
-
-## Reference Base And Reuse Boundary
-
-The current reference base includes the upstream `Hello-Agents` materials under
-[`references/hello-agents-main/`](./references/hello-agents-main/).
-
-That material is being used here as source input for curation and planning, not
-as the final published structure of this repository. The strategy document that
-guided this first-pass scaffold lives at
-[`references/global-agent-repository-strategy.md`](./references/global-agent-repository-strategy.md).
-
-If content is later adapted from upstream material, attribution and license
-constraints should be reviewed before publication.
-
-Upstream source:
-
-- [datawhalechina/Hello-Agents](https://github.com/datawhalechina/Hello-Agents)
-
-## Contributing
-
-Start with the contributor scaffolding in
-[`contributor-kit/`](./contributor-kit/) and use the article template before
-adding new handbook pages. The immediate contribution surfaces are:
-
-- handbook structure and page proposals
-- ecosystem comparison updates
-- radar updates for new releases and protocol changes
-- refinement of metadata and publication linkage
-
-## Notes
-
-- This repository is still early-stage, but it now has a repo-native structure.
-- Most folders currently contain direction-setting `README.md` files rather than
-  finished long-form content.
+<table>
+  <tr>
+    <td valign="top" width="50%">
+      <h3>Reader</h3>
+      <p>For people who want a clear, high-level understanding of the space before getting into implementation detail.</p>
+      <p><strong>What you get:</strong> A curated set of recommended reads across the handbook without a fixed sequence.</p>
+      <p><a href="./reading-paths/reader.md">Open the Reader guide</a></p>
+    </td>
+    <td valign="top" width="50%">
+      <h3>Practitioner</h3>
+      <p>For people who want to use agent tools and skills in daily life or real work without becoming professional agent builders.</p>
+      <p><strong>What you get:</strong> A linear orientation path for understanding use cases, choosing the right tool surfaces, and knowing where to go deeper later.</p>
+      <p><a href="./reading-paths/practitioner.md">Open the Practitioner guide</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%">
+      <h3>Builder</h3>
+      <p>For engineers who want to design and build professional agent applications.</p>
+      <p><strong>What you get:</strong> A linear build-oriented path through concepts, patterns, systems, and concrete examples.</p>
+      <p><a href="./reading-paths/builder.md">Open the Builder guide</a></p>
+    </td>
+    <td valign="top" width="50%">
+      <h3>Contributor</h3>
+      <p>For people who want to shape the handbook itself by adding, revising, curating, or maintaining pages.</p>
+      <p><strong>What you get:</strong> A contributor path into the editorial workflow, structure notes, and source-aware contribution scaffolding.</p>
+      <p><a href="./reading-paths/contributor.md">Open the Contributor guide</a></p>
+    </td>
+  </tr>
+</table>

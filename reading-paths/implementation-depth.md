@@ -1,20 +1,9 @@
 # Implementation Depth
 
-Best for builders who care most about how agent systems are designed,
-integrated, evaluated, and operated in practice.
+This legacy path has been retired as a primary entry point.
 
-## Suggested sequence
+If you want the canonical engineer-oriented sequence, use
+[Builder](./builder.md).
 
-1. [Foundations](../foundations/README.md)
-2. [Patterns](../patterns/README.md)
-3. [Systems](../systems/README.md)
-4. [Case Studies](../case-studies/README.md)
-5. [Ecosystem](../ecosystem/README.md)
-6. [Radar](../radar/README.md)
-
-## What this path optimizes for
-
-- Reusable implementation patterns
-- Production-minded system design
-- Comparative framework and tooling awareness
-- Concrete examples that connect ideas to real builds
+If you want a lighter practical orientation before going deeper, use
+[Practitioner](./practitioner.md).
