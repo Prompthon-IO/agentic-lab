@@ -59,6 +59,8 @@ Use `starter` unless the project is meaningfully complete and documented.
 - Do not copy upstream README text or large code blocks.
 - Only add runtime files that are directly relevant to the example.
 - If the project is not runnable yet, say so clearly.
+- If a project has executable starter code, add or update coverage in
+  `scripts/verify_example_projects.py`.
 
 ## Completion standard
 

@@ -28,13 +28,26 @@ agent-memory-retrieval-starter/
 ├── README.md
 ├── SOURCE_NOTES.md
 └── src/
-    └── memory_flow.py
+    ├── artifact_policy.py
+    ├── memory_flow.py
+    └── retrieval_trace.py
 ```
 
 ## Quick Start
 
 This is a starter, not a runnable application. Read `src/memory_flow.py` for
-the minimal state shape and use it as a base for a fuller example later.
+the minimal state shape and use it as a base for a fuller example later. For a
+repo-level smoke check, run `python3 scripts/verify_example_projects.py` from
+the repository root.
+
+## Included Sample Files
+
+- `src/memory_flow.py`: the smallest useful state container for active notes,
+  retrieval inputs, and durable artifacts
+- `src/retrieval_trace.py`: a tiny ranking and trace surface for making
+  retrieval decisions inspectable
+- `src/artifact_policy.py`: one place to show how a starter can separate
+  artifact-promotion rules from raw note capture
 
 ## Constraints
 

@@ -3,6 +3,13 @@
 Best for engineers who want to design and build professional agent
 applications.
 
+## Shared starting points
+
+- [Environment Setup](./environment-setup.md): the shared local setup guide for
+  running starter-code checks before deeper implementation work.
+- [Sample Projects](./sample-projects.md): the public guide to current example
+  starters and where they live in the repo.
+
 ## Suggested sequence
 
 1. [What Are Agent Systems](../foundations/what-are-agent-systems.md)

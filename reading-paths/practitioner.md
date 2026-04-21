@@ -8,6 +8,13 @@ readers understand where agents are useful, how to think about available tool
 surfaces, and where to go deeper next. It is not yet a detailed setup or
 tutorial track.
 
+## Shared starting points
+
+- [Environment Setup](./environment-setup.md): the shared local setup guide for
+  trying the repo-owned starter code.
+- [Sample Projects](./sample-projects.md): the public guide to current example
+  starters across the repo.
+
 ## Suggested sequence
 
 1. [Deep Research Agents](../case-studies/deep-research-agents.md)

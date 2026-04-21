@@ -8,6 +8,13 @@ Start with [Contributing](../CONTRIBUTING.md) for the public workflow, then use
 [Handbook Structure](../contributor-kit/handbook-structure.md) for the repo
 map and reference boundary.
 
+## Shared starting points
+
+- [Environment Setup](./environment-setup.md): the shared local setup guide for
+  validating the repo-owned starter code.
+- [Sample Projects](./sample-projects.md): the public map of current starter
+  projects and their intended scope.
+
 ## Supported contribution types
 
 - handbook articles

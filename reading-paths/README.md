@@ -13,3 +13,10 @@ single chapter stream.
   professional agent design and implementation.
 - [Contributor](./contributor.md): for people who want to edit, curate, or
   extend the repository itself.
+
+## Shared supporting guides
+
+- [Environment Setup](./environment-setup.md): shared local setup and starter
+  verification for practitioner, builder, and contributor paths.
+- [Sample Projects](./sample-projects.md): the public index of current
+  repo-owned starter projects.

@@ -27,13 +27,25 @@ weather-mcp-server-starter/
 ├── README.md
 ├── SOURCE_NOTES.md
 └── src/
-    └── server.py
+    ├── access_policy.py
+    ├── server.py
+    └── tool_manifest.py
 ```
 
 ## Quick Start
 
 This is a starter, not a finished server. The example file shows the interface
-shape and handler boundary without bringing in a full protocol runtime.
+shape and handler boundary without bringing in a full protocol runtime. For a
+repo-level smoke check, run `python3 scripts/verify_example_projects.py` from
+the repository root.
+
+## Included Sample Files
+
+- `src/server.py`: the minimal request and response boundary for one tool
+- `src/tool_manifest.py`: a compact example of how a protocol-facing starter
+  can declare its input schema and output shape
+- `src/access_policy.py`: a small authorization boundary that keeps permission
+  checks separate from the tool handler itself
 
 ## Constraints
 

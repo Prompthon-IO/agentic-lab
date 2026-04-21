@@ -27,13 +27,25 @@ langgraph-starter/
 ├── README.md
 ├── SOURCE_NOTES.md
 └── src/
-    └── graph.py
+    ├── branching.py
+    ├── graph.py
+    └── run_summary.py
 ```
 
 ## Quick Start
 
 This project is a starter. Read `src/graph.py` for the minimal graph state and
-node boundaries, then expand it into a fuller runnable example if needed.
+node boundaries, then expand it into a fuller runnable example if needed. For a
+repo-level smoke check, run `python3 scripts/verify_example_projects.py` from
+the repository root.
+
+## Included Sample Files
+
+- `src/graph.py`: a minimal plan, route, synthesize state transition sketch
+- `src/branching.py`: a narrow example of how route choice and retry policy can
+  be made explicit
+- `src/run_summary.py`: a tiny reporting surface for turning graph state into a
+  readable execution summary
 
 ## Constraints
 

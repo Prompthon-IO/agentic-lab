@@ -27,13 +27,25 @@ deep-research-agent-starter/
 ├── README.md
 ├── SOURCE_NOTES.md
 └── src/
-    └── research_loop.py
+    ├── citation_formatter.py
+    ├── research_loop.py
+    └── research_review.py
 ```
 
 ## Quick Start
 
 This is a starter, not a finished product. The code sketch focuses on the core
-loop and leaves transport, UI, and persistence out of scope.
+loop and leaves transport, UI, and persistence out of scope. For a repo-level
+smoke check, run `python3 scripts/verify_example_projects.py` from the
+repository root.
+
+## Included Sample Files
+
+- `src/research_loop.py`: the minimal planning, evidence, and draft-report loop
+- `src/citation_formatter.py`: a tiny reference surface for turning evidence
+  rows into readable citations
+- `src/research_review.py`: a small post-research quality check for evidence
+  coverage before publication
 
 ## Constraints
 
