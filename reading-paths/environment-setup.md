@@ -22,8 +22,8 @@ toolchain.
 ## Clone the repository
 
 ```bash
-git clone https://github.com/Prompthon-IO/prompthon-agentic-lab.git
-cd prompthon-agentic-lab
+git clone https://github.com/Prompthon-IO/agent-systems-handbook.git
+cd agent-systems-handbook
 ```
 
 ## Optional virtual environment

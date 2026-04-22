@@ -14,18 +14,18 @@
   <p>
     <a href="https://github.com/Prompthon-IO">Organization</a>
     ·
-    <a href="https://github.com/Prompthon-IO/prompthon-agentic-lab">Repository</a>
+    <a href="https://github.com/Prompthon-IO/agent-systems-handbook">Repository</a>
     ·
-    <a href="https://github.com/Prompthon-IO/prompthon-agentic-lab/issues">Issues</a>
+    <a href="https://github.com/Prompthon-IO/agent-systems-handbook/issues">Issues</a>
     ·
     <a href="https://discord.gg/sDE2HhGTg4">Discord</a>
   </p>
 
   <p>
-    <img src="https://img.shields.io/github/last-commit/Prompthon-IO/prompthon-agentic-lab?style=flat-square" alt="Last commit" />
-    <img src="https://img.shields.io/github/stars/Prompthon-IO/prompthon-agentic-lab?style=flat-square" alt="GitHub stars" />
-    <img src="https://img.shields.io/github/forks/Prompthon-IO/prompthon-agentic-lab?style=flat-square" alt="GitHub forks" />
-    <img src="https://img.shields.io/github/issues/Prompthon-IO/prompthon-agentic-lab?style=flat-square" alt="GitHub issues" />
+    <img src="https://img.shields.io/github/last-commit/Prompthon-IO/agent-systems-handbook?style=flat-square" alt="Last commit" />
+    <img src="https://img.shields.io/github/stars/Prompthon-IO/agent-systems-handbook?style=flat-square" alt="GitHub stars" />
+    <img src="https://img.shields.io/github/forks/Prompthon-IO/agent-systems-handbook?style=flat-square" alt="GitHub forks" />
+    <img src="https://img.shields.io/github/issues/Prompthon-IO/agent-systems-handbook?style=flat-square" alt="GitHub issues" />
   </p>
 </div>
 
