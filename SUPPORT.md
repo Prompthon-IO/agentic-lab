@@ -10,6 +10,7 @@ Start with:
 - `README.md`
 - `CONTRIBUTING.md`
 - `contributor-kit/README.md`
+- `contributor-kit/github-issue-guide.md`
 
 Those documents define the repository structure, contribution types, templates,
 and review expectations.
@@ -21,7 +22,7 @@ Open a GitHub issue if you have:
 - a concrete bug or broken path
 - a lab content proposal
 - a source-project proposal
-- a maintainer or process proposal
+- a repository feature or process proposal
 
 Use the repository's issue forms so the request lands in the right shape for
 review.
