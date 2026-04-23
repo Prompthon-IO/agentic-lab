@@ -7,11 +7,16 @@ region_tags:
   - global
 coding_required: optional
 external_readings:
-  - https://openai.com/index/equip-responses-api-computer-environment/
-  - https://openai.com/index/new-tools-and-features-in-the-responses-api/
-  - https://code.claude.com/docs/en/mcp
-  - https://modelcontextprotocol.io/specification/2025-06-18/client/roots
-  - https://modelcontextprotocol.io/specification/draft/server/resources
+  - title: OpenAI Responses API computer environment
+    url: https://openai.com/index/equip-responses-api-computer-environment/
+  - title: OpenAI Responses API tools and features
+    url: https://openai.com/index/new-tools-and-features-in-the-responses-api/
+  - title: Claude Code MCP documentation
+    url: https://code.claude.com/docs/en/mcp
+  - title: Model Context Protocol client roots specification
+    url: https://modelcontextprotocol.io/specification/2025-06-18/client/roots
+  - title: Model Context Protocol server resources specification
+    url: https://modelcontextprotocol.io/specification/draft/server/resources
 status: draft
 ---
 
