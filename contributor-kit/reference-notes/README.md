@@ -14,4 +14,7 @@ material and they are not replacements for lab pages.
 
 ## Current notes
 
+- [Deep Research Product Signals](./deep-research-product-signals.md): a
+  contributor-facing comparison of current OpenAI and Google deep-research
+  product signals.
 - [Deep Research Source Map](./deep-research-source-map.md)
