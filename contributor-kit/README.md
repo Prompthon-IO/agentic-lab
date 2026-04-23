@@ -21,6 +21,7 @@ here for templates, guidelines, and review assets.
 - [Radar Note Template](./templates/radar-note-template.md)
 - [Reference Note Template](./templates/reference-note-template.md)
 - [Source Project Template](./templates/source-project-template/README.md)
+- [GitHub Issue Guide](./github-issue-guide.md)
 - [Prompthon Agentic Lab Structure](./lab-structure.md)
 - [Article Guidelines](./article-guidelines.md)
 - [Radar Note Guidelines](./radar-note-guidelines.md)

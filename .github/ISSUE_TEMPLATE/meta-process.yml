@@ -1,11 +1,15 @@
-name: Maintainer Or Process Proposal
-description: Propose changes to repository governance, review flow, templates, labels, or contributor process.
-title: "[Process]: "
+name: Repository Feature Or Process Proposal
+description: Propose repository features or changes to governance, issue intake, review flow, templates, labels, or contributor process.
+title: "[Feature/Process]: "
 body:
   - type: markdown
     attributes:
       value: |
-        Use this form for repository process and governance work.
+        Use this form for repository feature requests and process or governance work.
+
+        Before filing, review:
+        - [Contributing](https://github.com/Prompthon-IO/agent-systems-handbook/blob/main/CONTRIBUTING.md)
+        - [GitHub Issue Guide](https://github.com/Prompthon-IO/agent-systems-handbook/blob/main/contributor-kit/github-issue-guide.md)
   - type: textarea
     id: problem
     attributes:

@@ -24,6 +24,7 @@ an editorial extension area for mature lab pages.
 Use the matching guide before you draft anything:
 
 - [Contributor Kit](./contributor-kit/README.md)
+- [GitHub Issue Guide](./contributor-kit/github-issue-guide.md)
 - [Article Guidelines](./contributor-kit/article-guidelines.md)
 - [Radar Note Guidelines](./contributor-kit/radar-note-guidelines.md)
 - [Source Project Guidelines](./contributor-kit/source-project-guidelines.md)
@@ -55,6 +56,13 @@ Use the matching guide before you draft anything:
 
 Do not create `examples/` under `foundations/` in v1.
 Do not add contributor-created material inside `references/`.
+
+## Issue intake
+
+Use [GitHub Issue Guide](./contributor-kit/github-issue-guide.md) before filing
+an issue. It explains which repository issue form to use for content proposals,
+source-project proposals, repository feature requests, process changes, and
+bugs.
 
 ## Shared PR flow
 

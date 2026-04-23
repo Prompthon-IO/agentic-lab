@@ -26,14 +26,15 @@ map and reference boundary.
 ## Suggested sequence
 
 1. [Contributing](../CONTRIBUTING.md)
-2. [Contributor Kit](../contributor-kit/README.md)
-3. [Article Guidelines](../contributor-kit/article-guidelines.md)
-4. [Radar Note Guidelines](../contributor-kit/radar-note-guidelines.md)
-5. [Source Project Guidelines](../contributor-kit/source-project-guidelines.md)
-6. [Reference Note Guidelines](../contributor-kit/reference-note-guidelines.md)
-7. [Review Checklist](../contributor-kit/review-checklist.md)
-8. [Prompthon Agentic Lab Structure](../contributor-kit/lab-structure.md)
-9. [References](../references/README.md)
+2. [GitHub Issue Guide](../contributor-kit/github-issue-guide.md)
+3. [Contributor Kit](../contributor-kit/README.md)
+4. [Article Guidelines](../contributor-kit/article-guidelines.md)
+5. [Radar Note Guidelines](../contributor-kit/radar-note-guidelines.md)
+6. [Source Project Guidelines](../contributor-kit/source-project-guidelines.md)
+7. [Reference Note Guidelines](../contributor-kit/reference-note-guidelines.md)
+8. [Review Checklist](../contributor-kit/review-checklist.md)
+9. [Prompthon Agentic Lab Structure](../contributor-kit/lab-structure.md)
+10. [References](../references/README.md)
 
 ## What this path optimizes for
 
