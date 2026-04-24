@@ -1,12 +1,12 @@
 ---
-title: Local Agent Watch
+title: April 2026 Local Agent Watch
 owner: Prompthon IO
 updated: 2026-04-23
 time_scope: 2026-04
 status: draft
 ---
 
-# Local Agent Watch
+# April 2026 Local Agent Watch
 
 ## Summary
 
