@@ -10,11 +10,10 @@ status: draft
 
 ## Summary
 
-The most useful local-agent signal across March and April 2026 is not a single
-model or framework launch. It is the way several official sources are starting
-to converge on the same shape: a nearby execution environment, explicit skill
-or workflow packaging, and grounded access to documents, files, or business
-systems.
+The most useful local-agent signal in April 2026 is not a single model or
+framework launch. It is the way several official sources converge on the same
+shape: a nearby execution environment, explicit skill or workflow packaging,
+and grounded access to documents, files, or business systems.
 
 ## Why It Matters
 
