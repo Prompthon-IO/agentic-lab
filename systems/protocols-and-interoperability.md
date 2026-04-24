@@ -7,10 +7,14 @@ region_tags:
   - global
 coding_required: optional
 external_readings:
-  - https://modelcontextprotocol.io/specification/2025-03-26/basic/transports
-  - https://modelcontextprotocol.io/specification/2025-06-18/client/roots
-  - https://modelcontextprotocol.io/specification/draft/server/resources
-  - https://openai.com/index/new-tools-and-features-in-the-responses-api/
+  - title: MCP Specification: Basic Transports
+    url: https://modelcontextprotocol.io/specification/2025-03-26/basic/transports
+  - title: MCP Specification: Client Roots
+    url: https://modelcontextprotocol.io/specification/2025-06-18/client/roots
+  - title: MCP Specification: Server Resources
+    url: https://modelcontextprotocol.io/specification/draft/server/resources
+  - title: OpenAI: New Tools and Features in the Responses API
+    url: https://openai.com/index/new-tools-and-features-in-the-responses-api/
 status: draft
 ---
 
