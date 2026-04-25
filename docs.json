@@ -183,7 +183,7 @@
           ],
           "primary": {
             "type": "button",
-            "label": "Repository",
+            "label": "Star on GitHub",
             "href": "https://github.com/Prompthon-IO/agentic-lab"
           }
         }
@@ -361,7 +361,7 @@
           ],
           "primary": {
             "type": "button",
-            "label": "代码仓库",
+            "label": "在 GitHub Star",
             "href": "https://github.com/Prompthon-IO/agentic-lab"
           }
         }
@@ -381,7 +381,7 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Repository",
+      "label": "Star on GitHub",
       "href": "https://github.com/Prompthon-IO/agentic-lab"
     }
   },
