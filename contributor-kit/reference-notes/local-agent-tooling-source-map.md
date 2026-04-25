@@ -2,7 +2,7 @@
 title: Local Agent Tooling Source Map
 owner: Prompthon IO
 updated: 2026-04-24
-scope: local agent tooling, skills, roots, resources, and file-grounded workflows
+scope: local agent tooling, skills, roots, resources, connectors, and file-grounded workflows
 status: draft
 ---
 
