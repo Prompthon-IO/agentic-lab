@@ -86,7 +86,7 @@ Excluded:
   between AI applications and external systems.
 - [MCP roots](https://modelcontextprotocol.io/specification/2025-06-18/client/roots):
   use this when the draft needs to explain local filesystem boundaries.
-- [MCP resources](https://modelcontextprotocol.io/specification/2025-06-18/server/resources):
+- [MCP resources](https://modelcontextprotocol.io/specification/draft/server/resources):
   use this when the draft needs to explain application-controlled context
   surfaces such as files, schemas, or application-specific objects.
 - [Claude Code MCP documentation](https://code.claude.com/docs/en/mcp):
