@@ -9,6 +9,17 @@
 
   <p>A public field guide for AI-native learners, early builders, and practitioners exploring how modern agent systems are understood, used, built, evaluated, and operated in practice.</p>
 
+
+  <p>
+    <a href="https://labs.prompthon.io/">
+      <img src="https://img.shields.io/badge/Visit-Live%20Site-0A66C2?style=for-the-badge" alt="Visit Live Site" />
+    </a>
+  </p>
+
+  <p>
+    <a href="https://labs.prompthon.io/"><strong>labs.prompthon.io</strong></a>
+  </p>
+
   <p>
     <a href="https://github.com/Prompthon-IO"><strong>Organization</strong></a>
     ·
