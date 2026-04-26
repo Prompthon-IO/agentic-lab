@@ -3,7 +3,7 @@
     <img src="https://github.com/Prompthon-IO.png?size=160" alt="Prompthon IO" width="96" height="96" />
   </a>
 
-  <h1>Prompthon Agentic Lab</h1>
+  <h1>Prompthon Agentic Labs</h1>
 
   <p><strong>通过提示迭代进化。通过构建学习。</strong></p>
 
@@ -37,7 +37,7 @@
 
 ## 概览
 
-Prompthon Agentic Lab 是一份面向 AI 原生学生、实践者和构建者的实战指南，从不同角度探索现代智能体系统。
+Prompthon Agentic Labs 是一份面向 AI 原生学生、实践者和构建者的实战指南，从不同角度探索现代智能体系统。
 
 基于 **学习、提问和创新** 构建，这个 lab 由学习者塑造，并扎根于真实的行业实践。它帮助读者理解这一领域、有效应用 AI，或通过并行路径而非单一路径构建真实系统。
 
@@ -100,7 +100,7 @@ Prompthon Agentic Lab 是一份面向 AI 原生学生、实践者和构建者的
 
 ## 贡献者指南
 
-如果你想为 Prompthon Agentic Lab 贡献内容，请从 contributor 文档开始，而不是使用临时性的内部工作材料。
+如果你想为 Prompthon Agentic Labs 贡献内容，请从 contributor 文档开始，而不是使用临时性的内部工作材料。
 
 本仓库中的公开贡献目前包括以下路径：
 
