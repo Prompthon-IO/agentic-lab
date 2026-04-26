@@ -9,6 +9,8 @@
 
   <p>这是面向 AI 原生学习者、早期构建者和实践者的公开实战指南，帮助他们从不同角度探索现代智能体系统在实践中如何被理解、使用、构建、评估和运营。</p>
 
+  <p><a href="https://labs.prompthon.io/"><strong>🌐 访问文档站点 → labs.prompthon.io</strong></a></p>
+
   <p>
     <a href="https://github.com/Prompthon-IO"><strong>组织</strong></a>
     ·

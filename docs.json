@@ -174,11 +174,13 @@
           "links": [
             {
               "label": "Organization",
-              "href": "https://github.com/Prompthon-IO"
+              "href": "https://github.com/Prompthon-IO",
+              "icon": "building"
             },
             {
               "label": "Discord",
-              "href": "https://discord.gg/sDE2HhGTg4"
+              "href": "https://discord.gg/sDE2HhGTg4",
+              "icon": "discord"
             }
           ],
           "primary": {
@@ -351,11 +353,13 @@
           "links": [
             {
               "label": "组织",
-              "href": "https://github.com/Prompthon-IO"
+              "href": "https://github.com/Prompthon-IO",
+              "icon": "building"
             },
             {
               "label": "Discord",
-              "href": "https://discord.gg/sDE2HhGTg4"
+              "href": "https://discord.gg/sDE2HhGTg4",
+              "icon": "discord"
             }
           ],
           "primary": {
@@ -370,11 +374,13 @@
     "links": [
       {
         "label": "Organization",
-        "href": "https://github.com/Prompthon-IO"
+        "href": "https://github.com/Prompthon-IO",
+        "icon": "building"
       },
       {
         "label": "Discord",
-        "href": "https://discord.gg/sDE2HhGTg4"
+        "href": "https://discord.gg/sDE2HhGTg4",
+        "icon": "discord"
       }
     ],
     "primary": {
