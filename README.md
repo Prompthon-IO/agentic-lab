@@ -3,12 +3,15 @@
     <img src="https://github.com/Prompthon-IO.png?size=160" alt="Prompthon IO" width="96" height="96" />
   </a>
 
-  <h1>Prompthon Agentic Lab</h1>
+  <h1>Prompthon Agentic Labs</h1>
 
   <p><strong>Evolve Through Prompting. Learn Through Building.</strong></p>
 
   <p>A public field guide for AI-native learners, early builders, and practitioners exploring how modern agent systems are understood, used, built, evaluated, and operated in practice.</p>
 
+  <p>
+    <img src="./assets/agentic-ai-blueprint.png" alt="Blueprint-style agentic AI system map with the Prompthon Agentic Labs logo and core agent loop concepts" width="100%" />
+  </p>
 
   <p>
     <a href="https://labs.prompthon.io/">
@@ -48,7 +51,7 @@
 
 ## Overview
 
-Prompthon Agentic Lab is an AI-native field guide for students, practitioners, and builders exploring modern agent systems from different angles.
+Prompthon Agentic Labs is an AI-native field guide for students, practitioners, and builders exploring modern agent systems from different angles.
 
 Built on **learn, question, and innovate**, the lab is shaped by learners and grounded in real industry practice. It helps readers understand the space, apply AI effectively, or build real systems through parallel paths rather than a single track.
 
@@ -111,7 +114,7 @@ Choose the path that best matches what you want from AI right now. These are par
 
 ## Contributor Guide
 
-If you want to contribute to Prompthon Agentic Lab, start from the contributor docs rather than ad hoc internal working material.
+If you want to contribute to Prompthon Agentic Labs, start from the contributor docs rather than ad hoc internal working material.
 
 Public contributions in this repository currently fit into these paths:
 

@@ -1,6 +1,6 @@
 # 支持
 
-使用与你在 Prompthon Agentic Lab 中所需帮助类型相匹配的支持路径。
+使用与你在 Prompthon Agentic Labs 中所需帮助类型相匹配的支持路径。
 
 ## 在打开任何内容之前
 

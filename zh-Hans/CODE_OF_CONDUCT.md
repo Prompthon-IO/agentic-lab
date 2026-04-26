@@ -1,6 +1,6 @@
 # 行为准则
 
-Prompthon Agentic Lab 是一个公开的工作实验室。我们希望贡献、
+Prompthon Agentic Labs 是一个公开的工作实验室。我们希望贡献、
 批评和评审始终具体、尊重且对下一个
 人有帮助。
 
