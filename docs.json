@@ -42,7 +42,14 @@
           {
             "group": "Foundations",
             "pages": [
-              "foundations/what-are-agent-systems",
+              {
+                "group": "The Agent Systems",
+                "pages": [
+                  "foundations/agent-systems/Why-Agent-Systems-Matter",
+                  "foundations/agent-systems/What-Is-Agent",
+                  "foundations/agent-systems/What-Is-Agent-System"
+                ]
+              },
               "foundations/agents-vs-workflows",
               "foundations/history-of-agent-ideas",
               "foundations/llm-foundations-for-agent-systems"
