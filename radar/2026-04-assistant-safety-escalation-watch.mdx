@@ -1,0 +1,95 @@
+---
+title: April 2026 Assistant Safety Escalation Watch
+owner: Prompthon IO
+updated: 2026-04-29
+time_scope: 2026-04
+status: draft
+---
+
+## Summary
+
+The April 2026 lawsuits around the Tumbler Ridge school shooting make one
+agent-systems question unusually concrete: when an assistant provider detects
+credible real-world violence signals, the product problem is no longer just
+content moderation. It becomes escalation design.
+
+For handbook readers, the practical takeaway is to separate normal privacy
+expectations from the narrow cases where a risk review may need to preserve
+evidence, override routine retention assumptions, and involve a named human
+owner.
+
+## Why It Matters
+
+Assistant safety can be described too vaguely as "the model should refuse bad
+requests." That is not enough for deployed systems. High-risk interactions
+create operational questions that need explicit answers:
+
+- what gets logged when the system detects violent intent
+- who owns the review after an automated or human flag
+- which threshold triggers internal escalation
+- which threshold triggers external reporting or legal review
+- how repeat policy violators are recognized without turning every user record
+  into an unbounded surveillance surface
+- how later reviewers can reconstruct what the assistant did, what the user
+  said, and what the operator decided
+
+Those questions sit between privacy, trust and safety, legal, incident
+response, and product operations. They should not be left as an implicit model
+behavior.
+
+## Evidence And Sources
+
+- [Families of Canada school shooting victims sue OpenAI over shooter's use of ChatGPT](https://apnews.com/article/openai-chatgpt-tumbler-ridge-26d632a065e8420a263655c8ee29f961):
+  AP reported that families filed U.S. lawsuits alleging OpenAI should have
+  alerted authorities after earlier account activity was flagged. OpenAI said
+  it had strengthened safeguards around distress responses, threat escalation,
+  and repeat policy violators.
+- [School-shooting lawsuits accuse OpenAI of hiding violent ChatGPT users](https://arstechnica.com/tech-policy/2026/04/school-shooting-lawsuits-accuse-openai-of-hiding-violent-chatgpt-users/):
+  Ars Technica framed the allegation around internal review, external warning
+  thresholds, and whether safety flags were acted on before a later attack.
+
+## Signals To Watch
+
+- Whether assistant providers publish clearer thresholds for violent-threat
+  escalation without exposing detection playbooks that bad actors can evade.
+- Whether products create auditable internal handoff records instead of leaving
+  escalations buried in chat logs or ad hoc moderation queues.
+- Whether repeat-offender detection becomes a distinct trust boundary from
+  ordinary personalization, memory, and account analytics.
+- Whether enterprise assistant deployments require customers to name legal,
+  security, and trust-and-safety owners before risky workflows go live.
+- Whether regulators and courts treat failure-to-warn claims as product design
+  failures, operational negligence, or something closer to platform-liability
+  doctrine.
+
+## Design Implications
+
+Builders should treat safety escalation as a workflow surface:
+
+- keep the model refusal path separate from the human escalation path
+- write down who can view retained high-risk evidence
+- preserve just enough context for later audit
+- require human review before external reporting unless law or policy requires
+  immediate action
+- make duty-to-report language specific to jurisdiction, organization policy,
+  and deployment setting
+
+The important design move is not to make every assistant conversation more
+visible. It is to define the rare conditions under which a credible risk signal
+becomes an accountable operational case.
+
+## Editorial Take
+
+This belongs in `radar/` because the legal and policy details will continue to
+move. The durable handbook lesson is narrower: assistant systems need an
+escalation contract, not only a refusal policy.
+
+That contract should say what is detected, what is preserved, who reviews it,
+what threshold changes the privacy expectation, and how the decision is later
+audited. Without that shape, "safety" remains a model-level aspiration instead
+of a system-level workflow.
+
+## Update Log
+
+- 2026-04-29: Added a radar note on assistant threat escalation, duty-to-report
+  boundaries, and audit-ready safety handoffs.
