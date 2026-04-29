@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Runtime Cache Benchmark"
+  short_description: "Compare cold and warm agent runs for cache stability"
+  default_prompt: "Use $agent-runtime-cache-benchmark to compare these two run artifacts and explain why the cache hit rate changed."
