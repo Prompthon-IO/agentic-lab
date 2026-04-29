@@ -7,7 +7,7 @@ import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Iterable
+from typing import Sequence
 
 
 RISK_TERMS = {
@@ -49,8 +49,8 @@ RISK_TERMS = {
 REDACTIONS = [
     (re.compile(r"\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", re.I), "[redacted-email]"),
     (re.compile(r"\b(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b"), "[redacted-phone]"),
-    (re.compile(r"\b(?:sk|gho|ghp|xoxb|pat)_[A-Za-z0-9_\-]{16,}\b"), "[redacted-token]"),
-    (re.compile(r"\b(?:api[_-]?key|token|secret)\s*[:=]\s*[A-Za-z0-9_\-]{12,}\b", re.I), "[redacted-secret]"),
+    (re.compile(r"(?<![A-Za-z0-9_])(?:sk[-_][A-Za-z0-9_-]{16,}|gh(?:o|p)[_-][A-Za-z0-9_-]{16,}|pat[_-][A-Za-z0-9_-]{16,}|xoxb-[A-Za-z0-9-]{16,})\b"), "[redacted-token]"),
+    (re.compile(r"\b(?:api[_-]?key|token|secret)\b\s*[:=]\s*(?:['\"])?[A-Za-z0-9][A-Za-z0-9_-]{11,}(?:['\"])?", re.I), "[redacted-secret]"),
 ]
 
 
@@ -121,9 +121,9 @@ def find_timeline_cues(text: str) -> list[str]:
     return sorted(set(cues))
 
 
-def estimate_severity(signals: dict[str, list[str]], timeline_cues: Iterable[str]) -> str:
+def estimate_severity(signals: dict[str, list[str]], timeline_cues: Sequence[str]) -> str:
     categories = set(signals)
-    has_time = bool(list(timeline_cues))
+    has_time = bool(timeline_cues)
     if {"violence", "targeting"} <= categories and has_time:
         return "critical-review"
     if "violence" in categories and ("targeting" in categories or "evasion" in categories):
@@ -227,11 +227,11 @@ def default_output_path(source_path: Path) -> Path:
 
 
 def command_review(args: argparse.Namespace) -> int:
-    source_path = Path(args.input).expanduser().resolve()
+    source_path = args.input.expanduser().resolve()
     if not source_path.exists():
         raise FileNotFoundError(f"input file does not exist: {source_path}")
     review = build_review(source_path)
-    output_path = Path(args.output).expanduser().resolve() if args.output else default_output_path(source_path)
+    output_path = args.output.expanduser().resolve() if args.output else default_output_path(source_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(render_memo(review), encoding="utf-8")
     print(f"memo: {output_path}")
@@ -245,8 +245,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Prepare a local safety escalation memo.")
     subparsers = parser.add_subparsers(dest="command", required=True)
     review = subparsers.add_parser("review", help="review a local evidence file")
-    review.add_argument("--input", required=True, help="local transcript, note, or JSON evidence file")
-    review.add_argument("--output", help="Markdown memo path; defaults under ~/.codex/state")
+    review.add_argument("--input", required=True, type=Path, help="local transcript, note, or JSON evidence file")
+    review.add_argument("--output", type=Path, help="Markdown memo path; defaults under ~/.codex/state")
     review.set_defaults(func=command_review)
     return parser
 
