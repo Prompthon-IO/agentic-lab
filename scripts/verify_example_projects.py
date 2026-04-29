@@ -60,8 +60,9 @@ def check_memory_starter() -> None:
     )
     imported_context = personal_context_module.normalize_imported_context(
         [
-            ("favorite_genre", "science fiction"),
-            ("timezone", "America/Toronto"),
+            (" Favorite Genre ", "  Science Fiction  "),
+            (" TimeZone ", "  America/Toronto  "),
+            ("nickname", "   "),
         ]
     )
     merged_context = personal_context_module.merge_personal_context(
@@ -103,7 +104,15 @@ def check_memory_starter() -> None:
         == "decision-publish-notes"
     )
     assert len(merged_context) == 2
-    assert merged_context[0].source == "imported-summary"
+    assert {item.kind for item in merged_context} == {
+        "favorite_genre",
+        "timezone",
+    }
+    assert {item.summary for item in merged_context} == {
+        "Science Fiction",
+        "America/Toronto",
+    }
+    assert all(item.source == "imported-summary" for item in merged_context)
 
 
 def check_weather_starter() -> None:
