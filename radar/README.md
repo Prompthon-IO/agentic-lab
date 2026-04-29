@@ -19,6 +19,9 @@ without destabilizing the evergreen structure.
 
 ## Current notes
 
+- [April 2026 Assistant Safety Escalation Watch](./2026-04-assistant-safety-escalation-watch.mdx):
+  a current signal on credible violence flags, duty-to-report boundaries,
+  repeat policy violators, and audit-ready safety handoffs.
 - [April 2026 Portable Assistant Memory Watch](./2026-04-portable-assistant-memory-watch.mdx):
   a time-scoped note on imported personal context, default-on assistant memory,
   and chat-history transfer as a separate trust boundary from retrieval and
