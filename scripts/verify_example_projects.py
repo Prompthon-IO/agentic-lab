@@ -216,7 +216,14 @@ def check_messaging_transaction_starter() -> None:
     assert handoff.confirmation.recipient == "family"
     assert handoff.confirmation.requires_user_confirmation is True
     assert handoff.confirmation.amount_inr <= 300
-    assert "upi-like" in handoff.payment_methods
+    assert "instant-transfer-like" in handoff.payment_methods
+
+    try:
+        module.select_plan(module.capture_intent("recharge me"), max_price_inr=0)
+    except ValueError as exc:
+        assert "budget must be positive" in str(exc)
+    else:
+        raise AssertionError("non-positive budget should be rejected")
 
     try:
         module.select_plan(module.capture_intent("recharge me"), max_price_inr=100)

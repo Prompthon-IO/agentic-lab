@@ -66,12 +66,12 @@ def capture_intent(message: str) -> TransactionIntent:
         recipient = "friend"
 
     operator = "generic-mobile"
-    if "airtel" in normalized:
-        operator = "airtel-like"
-    elif "jio" in normalized:
-        operator = "jio-like"
-    elif "vi" in normalized or "vodafone" in normalized:
-        operator = "vi-like"
+    if "operator a" in normalized:
+        operator = "operator-a"
+    elif "operator b" in normalized:
+        operator = "operator-b"
+    elif "operator c" in normalized:
+        operator = "operator-c"
 
     return TransactionIntent(
         raw_message=message,
@@ -82,7 +82,10 @@ def capture_intent(message: str) -> TransactionIntent:
 
 
 def select_plan(intent: TransactionIntent, max_price_inr: int | None = None) -> RechargePlan:
-    candidates = [plan for plan in PLANS if plan.price_inr <= (max_price_inr or 9999)]
+    if max_price_inr is not None and max_price_inr <= 0:
+        raise ValueError("budget must be positive")
+    budget = max_price_inr if max_price_inr is not None else 9999
+    candidates = [plan for plan in PLANS if plan.price_inr <= budget]
     if not candidates:
         raise ValueError("no starter plan fits the requested budget")
     selected = candidates[-1]
@@ -112,7 +115,7 @@ def prepare_payment_handoff(confirmation: Confirmation) -> PaymentHandoff:
         raise ValueError("payment handoff must require explicit user confirmation")
     return PaymentHandoff(
         status="awaiting-user-confirmation",
-        payment_methods=("upi-like", "card-like"),
+        payment_methods=("instant-transfer-like", "card-like"),
         confirmation=confirmation,
     )
 
