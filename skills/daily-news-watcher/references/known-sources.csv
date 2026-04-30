@@ -1,0 +1,9 @@
+name,url,type,tags
+BBC AI,https://feeds.bbci.co.uk/news/technology/rss.xml,rss,AI;tech
+The Verge AI,https://www.theverge.com/rss/ai-artificial-intelligence/index.xml,rss,AI;tech
+OpenAI Blog,https://openai.com/blog/rss.xml,rss,AI
+Hacker News Front Page,https://hnrss.org/frontpage,rss,tech;startup
+MIT Technology Review,https://www.technologyreview.com/feed/,rss,AI;tech;research
+Anthropic News,https://www.anthropic.com/news/rss.xml,rss,AI
+Ars Technica,https://feeds.arstechnica.com/arstechnica/index,rss,tech
+TechCrunch,https://techcrunch.com/feed/,rss,tech;startup
