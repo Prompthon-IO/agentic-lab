@@ -1,4 +1,6 @@
 references
+!skills/personal-knowledge-capture/references/
+!skills/personal-knowledge-capture/references/supported-file-types.md
 /AGENTS.md
 /agent.md
 /docs/internal/
@@ -7,3 +9,6 @@ references
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Local runtime state
+.local-state/
