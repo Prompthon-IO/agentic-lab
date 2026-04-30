@@ -171,6 +171,8 @@ function buildAnnouncementJob({ event, pullRequest }) {
     event.repository?.html_url ||
     `https://github.com/${repoFullName}`;
   const prNumber = pullRequest?.number ?? null;
+  const commitUrl = headCommit.url || `${repoUrl}/commit/${sha}`;
+  const sourceUrl = pullRequest?.html_url || commitUrl;
 
   return {
     authorLogin:
@@ -198,7 +200,8 @@ function buildAnnouncementJob({ event, pullRequest }) {
       allChangedPaths: changedPaths,
       eventName: process.env.GITHUB_EVENT_NAME || "push",
       githubRunId: process.env.GITHUB_RUN_ID || null,
-      headCommitUrl: headCommit.url || `${repoUrl}/commit/${sha}`,
+      headCommitUrl: commitUrl,
+      sourceUrl,
       workflow: process.env.GITHUB_WORKFLOW || null,
     },
     prNumber,
@@ -222,6 +225,7 @@ function publicJobSummary(job) {
     prNumber: job.prNumber,
     prTitle: job.prTitle,
     repoFullName: job.repoFullName,
+    sourceUrl: job.payloadJson?.sourceUrl ?? null,
   };
 }
 
