@@ -685,6 +685,13 @@ def command_fetch(args: argparse.Namespace) -> int:
                     entry["skipped_duplicate"] += 1
                     continue
 
+                if not in_time_window(article_record, args.hours, now):
+                    entry["skipped_filter"] += 1
+                    continue
+                if not matches_topic(args.topic or "", article_record, source["tags"] or ""):
+                    entry["skipped_filter"] += 1
+                    continue
+
                 seen_urls.add(canon)
                 seen_hashes.add(digest)
                 db.execute(
@@ -701,14 +708,6 @@ def command_fetch(args: argparse.Namespace) -> int:
                     ),
                 )
                 entry["new"] += 1
-
-                if not in_time_window(article_record, args.hours, now):
-                    entry["skipped_filter"] += 1
-                    continue
-                if not matches_topic(args.topic or "", article_record, source["tags"] or ""):
-                    entry["skipped_filter"] += 1
-                    continue
-
                 entry["kept"] += 1
                 included_articles.append(article_record)
 
