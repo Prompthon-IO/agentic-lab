@@ -222,7 +222,7 @@
             },
             {
               "label": "GitHub",
-              "href": "https://github.com/Prompthon-IO/agentic-lab",
+              "href": "https://github.com/Prompthon-IO/agent-systems-handbook",
               "icon": {
                 "style": "brands",
                 "name": "github"
@@ -438,7 +438,7 @@
             },
             {
               "label": "GitHub",
-              "href": "https://github.com/Prompthon-IO/agentic-lab",
+              "href": "https://github.com/Prompthon-IO/agent-systems-handbook",
               "icon": {
                 "style": "brands",
                 "name": "github"
@@ -466,7 +466,7 @@
       },
       {
         "label": "GitHub",
-        "href": "https://github.com/Prompthon-IO/agentic-lab",
+        "href": "https://github.com/Prompthon-IO/agent-systems-handbook",
         "icon": {
           "style": "brands",
           "name": "github"
@@ -488,7 +488,7 @@
   },
   "footer": {
     "socials": {
-      "github": "https://github.com/Prompthon-IO/agentic-lab",
+      "github": "https://github.com/Prompthon-IO/agent-systems-handbook",
       "discord": "https://discord.gg/sDE2HhGTg4"
     }
   }
