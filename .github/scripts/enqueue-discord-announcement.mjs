@@ -127,7 +127,7 @@ function baseRepoInfo(event) {
   const repoFullName = normalizeGitHubRepoFullName(
     process.env.GITHUB_REPOSITORY ||
     event.repository?.full_name ||
-    runGit(["config", "--get", "remote.origin.url"], "Prompthon-IO/agentic-lab"),
+    runGit(["config", "--get", "remote.origin.url"], "Prompthon-IO/agent-systems-handbook"),
   );
   return {
     repoFullName,
