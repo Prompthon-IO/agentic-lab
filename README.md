@@ -16,7 +16,7 @@
   <p>Use it to understand, design, build, and operate production-minded AI agents — from first principles to framework choices and implementation patterns.</p>
 
   <p>
-    <img src="./assets/agentic-ai-blueprint.png" alt="Blueprint-style agentic AI system map with the Prompthon Agentic Labs logo and core agent loop concepts" width="100%" />
+    <img src="./assets/agentic-ai-blueprint.png" alt="Blueprint-style agentic AI system map showing core agent loop concepts" width="100%" />
   </p>
   
   <p>
