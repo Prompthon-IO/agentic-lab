@@ -29,6 +29,8 @@ npx mint broken-links
 
 主 Mintlify 部署应通过 Mintlify GitHub 应用连接。Mintlify 会读取 `docs.json`，并在推送更改时发布文档站点。
 
+正式文档站点发布于 `https://labs.prompthon.io`。
+
 如果手册应显示在 Vercel 拥有的域名下，请在 Mintlify 子域名存在后，将 Vercel 配置为反向代理：
 
 ```json
@@ -47,6 +49,14 @@ npx mint broken-links
 ```
 
 在确认真实的 Mintlify 子域名前，不要添加那个已启用的 `vercel.json`。
+
+## 分析与 Search Console
+
+Mintlify 分析功能应用于文档原生使用信号，例如阅读量最高的页面、内部搜索、搜索结果点击、反馈和助手活动。可在 Mintlify 仪表盘或通过已认证的 CLI 会话 `npx mint analytics` 访问相关报告。
+
+GA4 通过 Mintlify `docs.json` 集成配置，测量 ID 为 `G-K26DVPPVLY`。GA4 用于外部报表、引流来源分析和点击路径探索。
+
+Google Search Console 应为 `https://labs.prompthon.io/` 设置 URL 前缀属性。验证 token 已以 `google-site-verification` meta 标签的形式提交到 `docs.json`。部署完成后，验证该属性并提交 `https://labs.prompthon.io/sitemap.xml`。
 
 ## 兼容性策略
 
