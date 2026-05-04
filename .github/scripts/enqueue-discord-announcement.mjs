@@ -243,7 +243,30 @@ async function buildPushJobs(event) {
   });
 
   if (pullRequest) {
-    return [];
+    return [
+      makeJob({
+        authorLogin: pullRequest.user?.login || null,
+        branch,
+        changeSummary: truncate(firstParagraph(pullRequest.body), 700) || `Merged PR #${pullRequest.number}.`,
+        channelKey: "repo-updates",
+        commitSha: sha,
+        dedupeKey: `${repoFullName}:pr:${pullRequest.number}:merged:repo-updates`,
+        eventType: "github_pr_merged",
+        mergedByLogin: pullRequest.merged_by?.login ||
+          event.head_commit?.committer?.username ||
+          process.env.GITHUB_ACTOR ||
+          null,
+        payloadJson: {
+          pull_request: pullRequest,
+          sourceUrl: pullRequest.html_url,
+        },
+        prNumber: pullRequest.number,
+        prTitle: pullRequest.title,
+        prUrl: pullRequest.html_url,
+        repoFullName,
+        repoUrl,
+      }),
+    ];
   }
 
   const before = event.before || runGit(["rev-parse", `${sha}^`], "");
@@ -335,7 +358,8 @@ function buildPullRequestJobs(event) {
   if (!pullRequest) {
     return [];
   }
-  if (pullRequest.base?.ref !== "main") {
+  const baseRef = pullRequest.base?.ref;
+  if (!["develop", "main"].includes(baseRef)) {
     return [];
   }
 
@@ -360,6 +384,10 @@ function buildPullRequestJobs(event) {
         repoUrl,
       }),
     ];
+  }
+
+  if (baseRef !== "main") {
+    return [];
   }
 
   if (action === "closed" && pullRequest.merged) {
@@ -415,6 +443,17 @@ function publicJobSummary(job) {
   };
 }
 
+function isForkPullRequestJob(job) {
+  if (job.payloadJson?.eventName !== "pull_request") {
+    return false;
+  }
+
+  const headRepoFullName = normalizeGitHubRepoFullName(
+    job.payloadJson?.pull_request?.head?.repo?.full_name,
+  );
+  return Boolean(headRepoFullName && headRepoFullName !== job.repoFullName);
+}
+
 function wantsSsl(databaseUrl) {
   return /(?:[?&]ssl=true|[?&]sslmode=(?:require|prefer|verify-ca|verify-full))/i.test(
     databaseUrl,
@@ -424,6 +463,10 @@ function wantsSsl(databaseUrl) {
 async function enqueueJob(job) {
   const databaseUrl = process.env.PATHWAY_DISCORD_ANNOUNCER_DATABASE_URL;
   if (!databaseUrl) {
+    if (process.env.GITHUB_ACTIONS === "true" && isForkPullRequestJob(job)) {
+      return { skipped: true, reason: "fork_pull_request_secrets_unavailable" };
+    }
+
     const message = "Missing required PATHWAY_DISCORD_ANNOUNCER_DATABASE_URL secret; cannot enqueue Discord announcement job.";
     if (process.env.GITHUB_ACTIONS === "true") {
       console.error(`::error::${message}`);
