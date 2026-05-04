@@ -1,8 +1,8 @@
 # Discord Lab Updates Automation
 
 This repository enqueues Discord announcement jobs for Agentic Labs GitHub
-events: issue `good-first-issue` labels, PR coordination, PR merges, and direct
-pushes to `main`.
+events: issue `good-first-issue` labels, PR coordination for `develop` and
+`main`, PR merges, and direct pushes to `main`.
 A separate local announcer worker drains those jobs from Postgres and posts
 them to the Agentic Labs Discord channels.
 
@@ -44,7 +44,8 @@ Postgres and does not post to Discord.
 
 ## Runtime Flow
 
-1. A matching issue, PR, or direct `main` push event lands in GitHub.
+1. A matching issue, `develop` or `main` PR, or direct `main` push event lands
+   in GitHub.
 2. `.github/workflows/discord-lab-updates.yml` checks out the repo and runs the
    enqueue script.
 3. The script inserts one or more deduped rows into

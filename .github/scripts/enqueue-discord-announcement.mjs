@@ -358,7 +358,8 @@ function buildPullRequestJobs(event) {
   if (!pullRequest) {
     return [];
   }
-  if (pullRequest.base?.ref !== "main") {
+  const baseRef = pullRequest.base?.ref;
+  if (!["develop", "main"].includes(baseRef)) {
     return [];
   }
 
@@ -383,6 +384,10 @@ function buildPullRequestJobs(event) {
         repoUrl,
       }),
     ];
+  }
+
+  if (baseRef !== "main") {
+    return [];
   }
 
   if (action === "closed" && pullRequest.merged) {
