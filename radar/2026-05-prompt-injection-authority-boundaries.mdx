@@ -1,0 +1,77 @@
+---
+title: May 2026 Prompt-Injection Authority Boundaries Watch
+owner: xyanglu
+updated: 2026-05-18
+time_scope: 2026-05
+status: draft
+---
+
+import SupportCTA from "/snippets/support-cta.mdx";
+
+<SupportCTA />
+
+## Summary
+
+Prompt injection is often framed as a vulnerability in model behavior, but the
+root problem is an authority boundary issue: external content (webpages, emails,
+retrieved documents, tool outputs) provides data, not instructions. When an
+agent system does not enforce that boundary, untrusted content can silently gain
+control over agent behavior.
+
+## Why It Matters
+
+Agent systems increasingly operate over untrusted inputs. A support agent
+reading customer emails, a research agent scraping web pages, or a retrieval
+agent using RAG over external documents all process content that was not
+authored by the system or its developers.
+
+Without explicit authority boundaries:
+
+- A malicious email can inject instructions that override system prompts.
+- A retrieved document can contain hidden directives that change tool
+  selection or data handling.
+- A tool output from a compromised API can return adversarial content that
+  influences downstream reasoning.
+
+The defense question is not about banning dangerous words or phrases. It is
+about making the system distinguish between data it reads and instructions it
+follows.
+
+## Evidence And Sources
+
+- **LangChain ArcGate**: An open-source tool that isolates untrusted content
+  from the instruction layer in LangChain pipelines. It wraps external inputs
+  in a structured boundary so the agent processes them as data, not as
+  commands.
+  ([GitHub: langchain-arcgate](https://github.com/9hannahnine-jpg/langchain-arcgate))
+
+- **Reddit discussion**: Community conversation on the authority boundary
+  framing, highlighting that most prompt-injection defenses focus on output
+  filtering rather than input authority separation.
+  ([r/artificial discussion](https://www.reddit.com/r/artificial/comments/1tdedmo/built_a_tool_that_stops_ai_agents_from_being/))
+
+- **OWASP LLM Top 10**: The OWASP listing for LLM01 (Prompt Injection)
+  explicitly recommends input validation and instruction-context separation as
+  primary controls, not output monitoring alone.
+  ([OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/))
+
+## Signals To Watch
+
+- Whether agent frameworks add first-class support for marking input sources as
+  trusted or untrusted, with different processing paths for each.
+- Whether evaluation suites for agent systems include prompt-injection test
+  cases that probe authority boundaries, not just output safety.
+- Whether the industry converges on a standard separation between the
+  instruction layer (system prompts, developer messages, tool schemas) and the
+  data layer (user content, retrieved passages, API responses).
+- Whether managed-agent platforms (cloud-hosted agent runtimes) build authority
+  boundary enforcement into the runtime rather than leaving it to application
+  code.
+- Whether local-agent runtimes (running near user files and tools) face
+  additional authority challenges because the line between trusted local context
+  and untrusted external content is harder to draw.
+
+## Update Log
+
+- 2026-05-18: Initial draft based on authority-boundary framing for
+  prompt-injection defenses.
