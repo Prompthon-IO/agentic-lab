@@ -1,0 +1,90 @@
+---
+title: May 2026 Customer Support Agent Evaluation Tradeoffs
+owner: xyanglu
+updated: 2026-05-18
+time_scope: 2026-05
+status: draft
+---
+
+import SupportCTA from "/snippets/support-cta.mdx";
+
+<SupportCTA />
+
+## Summary
+
+Customer support agents built on LLMs are moving from prototype to production,
+but evaluation practices have not kept pace. Teams are shipping agents that
+handle real conversations without a clear framework for measuring what "good"
+means across the dimensions that actually matter: response quality, reliability
+under API failures, latency consistency, and cost control. The gap is widest for
+teams running multi-model setups with automatic fallback.
+
+## Why It Matters
+
+Support agents operate under constraints that benchmarks do not capture. A
+model scoring well on MMLU or Arena can still fail in production when:
+
+- The cloud API returns empty responses due to content filtering or transient
+  errors, and the fallback model is too slow for interactive use.
+- Responses are syntactically correct but miss conversational context, tone,
+  or the user's actual intent.
+- Latency varies wildly between primary and fallback providers, creating an
+  inconsistent user experience.
+
+These are system-level evaluation problems, not model-level ones. The
+evaluation question is not "which model scores highest" but "does the full
+pipeline deliver acceptable replies reliably, under real failure conditions,
+within latency and cost budgets."
+
+## Evidence And Sources
+
+- **Multi-model fallback in production**: A deployed auto-reply system using
+  GLM-5.1 (cloud, ~25 tok/s) as primary with Phi-3 mini (local, ~3.4 tok/s)
+  as fallback showed that cloud APIs can return empty responses with
+  `finish_reason: "length"` during transient outages. The system needed
+  explicit empty-response detection to trigger fallback, since HTTP 200 with
+  empty content is not an error. This is a common blind spot in agent
+  evaluation frameworks that only check for exceptions.
+  ([Discussion context: production Signal messaging agent, May 2026](https://www.linkedin.com/posts/yang-lu-a-engineer/))
+
+- **OpenAI function calling evaluation guide**: OpenAI's documentation
+  emphasizes that evaluation should cover tool selection accuracy, argument
+  correctness, and response coherence separately, not just end-to-end task
+  completion.
+  ([OpenAI Evaluation Best Practices](https://platform.openai.com/docs/guides/evaluation))
+
+- **LangSmith agent evaluation patterns**: LangChain's evaluation toolkit
+  treats agent evaluation as a multi-dimensional problem spanning trajectory
+  (did it pick the right tools?), final output (did it produce the right
+  answer?), and latency (did it finish in time?). Support agents add a fourth
+  dimension: conversational appropriateness.
+  ([LangSmith Evaluation Docs](https://docs.smith.langchain.com/evaluation))
+
+- **Local inference tradeoffs**: llama.cpp benchmarks on consumer hardware
+  (Intel i7, 16GB RAM) show that Q4-quantized 3.8B models achieve 3-4 tok/s,
+  which is too slow for interactive support chat but acceptable as a degraded
+  fallback. The tradeoff between model quality and inference speed is a
+  deployment decision that evaluation frameworks should surface explicitly.
+  ([llama.cpp](https://github.com/ggml-org/llama.cpp))
+
+## Signals To Watch
+
+- Whether evaluation frameworks add first-class support for fallback chain
+  testing: asserting that degraded-mode responses still meet minimum quality
+  bars, not just asserting happy-path behavior.
+- Whether content-filter-induced empty responses become a standard test case
+  in agent evaluation suites, alongside timeout and rate-limit scenarios.
+- Whether production support agents converge on a standard set of evaluation
+  dimensions: response quality, conversational tone, latency budget adherence,
+  fallback reliability, and cost per conversation.
+- Whether local inference hardware improvements (Apple Silicon unified memory,
+  NPUs) shift the cost-quality tradeoff enough to make single-model deployment
+  viable for support agents, eliminating fallback complexity entirely.
+- Whether observability tools begin correlating model-level metrics (token
+  speed, finish reason) with user-level outcomes (conversation resolution,
+  follow-up rate).
+
+## Update Log
+
+- 2026-05-18: Initial draft based on production experience with multi-model
+  support agent systems.
