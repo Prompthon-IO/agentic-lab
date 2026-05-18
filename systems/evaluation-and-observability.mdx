@@ -1,7 +1,7 @@
 ---
 title: Evaluation And Observability
 owner: Prompthon IO
-updated: 2026-04-21
+updated: 2026-05-18
 depth: advanced
 region_tags:
   - global
@@ -21,6 +21,10 @@ tells you why it passed or failed. Production systems need both, because scores
 without traces are hard to improve and traces without metrics are hard to
 prioritize.
 
+This page covers general evaluation and observability for agent systems, with a
+dedicated section on why LLM-based agents need a different evaluation mindset
+than traditional software.
+
 ## Why It Matters
 
 Agent systems are probabilistic and multi-step. That makes them harder to judge
@@ -35,6 +39,90 @@ Teams therefore need two loops:
 
 - an `evaluation loop` for measuring capability
 - a `diagnostic loop` for explaining behavior
+
+## Why LLM Evaluation Is Different
+
+Evaluating an agent system is not the same as testing a function. Four
+properties of LLM-based systems break traditional test assumptions.
+
+**Nondeterministic outputs.** The same prompt can produce different valid
+answers across runs. Tests that assert an exact string match will flake. You
+need tolerance for semantic equivalence, not just syntactic identity. See
+[LLM Foundations for Agent Systems](/foundations/llm-foundations-for-agent-systems)
+for the underlying model behavior.
+
+**Probabilistic success.** An agent may succeed on 8 out of 10 runs and fail
+twice for reasons that are not reproducible. Evaluation shifts from "does it
+pass?" to "what fraction of runs succeed, and under what conditions?" This
+means reporting confidence intervals, not just point scores.
+
+**Tool-call variance.** Two correct trajectories may call tools in different
+orders, use different argument combinations, or skip steps that another path
+includes. Structured correctness checks must compare intent and outcome, not
+just the literal call sequence. See
+[Context Engineering](/systems/context-engineering) for how tool selection
+relates to prompt and retrieval design.
+
+**Ambiguous criteria.** For open-ended tasks (summarization, drafting,
+creative synthesis), there is often no single correct answer. Multiple
+responses can be equally valid. This makes binary pass/fail insufficient and
+pushes you toward rubric-based scoring, pairwise comparison, or human
+judgment.
+
+## Evaluation Approach Map
+
+No single evaluation method covers every task. Match the approach to what you
+are measuring.
+
+| Approach | When to use | What it checks |
+|---|---|---|
+| Exact / structured checks | Tool calling, JSON schemas, output format | Correct function selected, correct parameter types, valid schema |
+| Reference-based comparison | Retrieval-augmented tasks, factual QA | Output matches a known-good reference (exact, fuzzy, or semantic similarity) |
+| Rubric scoring | Open-ended generation, summarization, reasoning | Human or judge model scores output against a multi-point rubric |
+| Pairwise comparison | Model or prompt selection | Given two outputs, a human or judge picks the better one |
+| LLM-as-a-judge | High-volume automated scoring where human review is too slow | A second LLM evaluates output quality using a structured prompt |
+| Human review | High-stakes, novel tasks, calibration of automated methods | Domain expert rates output quality; used to validate and calibrate judges |
+| Online telemetry | Production monitoring | Success rate, latency, escalation rate, retries, user feedback signals |
+
+Most production systems combine two or more. A common pattern: structured
+checks for tool correctness, LLM-as-a-judge for answer quality, human review
+for calibration, and online telemetry for regression detection.
+
+## Human-in-the-Loop vs LLM-as-a-Judge
+
+Both approaches have a role. Knowing where each is strongest avoids the two
+common failures: relying on humans too slowly to catch regressions, or relying
+on a judge model that is not calibrated to your domain.
+
+**Human-in-the-loop is strongest when:**
+
+- the task is high-stakes (medical, legal, financial advice)
+- criteria are novel or poorly defined and you are still learning what "good"
+  looks like
+- you need to calibrate or audit an automated judge
+- edge cases are rare but critical (safety, bias, harmful output)
+
+**LLM-as-a-judge is strongest when:**
+
+- you need to score hundreds or thousands of runs per change
+- criteria are well-defined and stable enough to encode in a prompt
+- you are running regression tests on every commit or deployment
+- the judge model can be validated against a held-out human-labeled set
+
+**Calibration is not optional.** A judge model that agrees with humans 60% of
+the time is a noisy signal, not a replacement. Build a calibration set of
+100-200 human-labeled examples. Measure agreement rate. Retrain or adjust the
+judge prompt when agreement drops below your threshold.
+
+**Audit expectations.** Regulators and internal reviewers will ask "who checked
+this?" Keep records of:
+
+- which runs were human-reviewed vs judge-scored
+- judge agreement rates on calibration samples
+- any overrides where a human disagreed with the judge
+
+See [Deep Research Agents](/case-studies/deep-research-agents) for a worked
+example of mixing automated scoring with human calibration.
 
 ## Mental Model
 
@@ -70,6 +158,23 @@ flowchart LR
   Triage --> Decisions
 ```
 
+## Framework Landscape
+
+A compact comparison of common evaluation and observability frameworks. This is
+not exhaustive; it covers the three most frequently referenced in agent-system
+work.
+
+| Framework | Primary focus | Key strengths | Source |
+|---|---|---|---|
+| **Langfuse** | Observability and eval platform | Open-source, trace-first design, supports LLM-as-a-judge scoring, prompt versioning, dataset management | [langfuse.com](https://langfuse.com) |
+| **LangSmith** | Observability and eval for LangChain ecosystem | Tight LangChain/LangGraph integration, trace visualization, automated evaluation workflows, dataset curation | [smith.langchain.com](https://smith.langchain.com) |
+| **Ragas** | RAG-specific evaluation metrics | Metrics for faithfulness, answer relevance, context precision, and context recall; framework-agnostic | [docs.ragas.io](https://docs.ragas.io) |
+
+All three support the evaluation approaches described in the approach map
+above. Choose based on your stack integration needs and whether your primary
+focus is RAG-specific metrics (Ragas), open-source self-hosting (Langfuse), or
+LangChain ecosystem alignment (LangSmith).
+
 ## Tool Landscape
 
 The imported reference material highlights three useful evaluation shapes:
@@ -99,6 +204,10 @@ That is what turns a black-box failure into an actionable bug.
 - Judge-model evaluation scales well, but it still needs human calibration.
 - Rich traces improve diagnosis, but they create storage, privacy, and review
   overhead.
+- Pairwise comparison is easy for humans but does not give you an absolute
+  score; use it for ranking, not for release gating.
+- LLM-as-a-judge is fast but inherits the judge model's biases; a judge that
+  prefers verbose outputs will systematically over-score wordy generations.
 
 Useful operating defaults:
 
@@ -106,13 +215,18 @@ Useful operating defaults:
 - keep traces for both failed and successful runs
 - review failure modes before rewriting prompts
 - do not ship "tool failed" as the only explanation developers can see
+- maintain a calibration set and re-check judge agreement after every model
+  change
 
 ## Reading Extensions
 
-- [Protocols And Interoperability](/systems/protocols-and-interoperability)
+- [LLM Foundations for Agent Systems](/foundations/llm-foundations-for-agent-systems)
+- [Context Engineering](/systems/context-engineering)
 - [Deep Research Agents](/case-studies/deep-research-agents)
+- [Protocols And Interoperability](/systems/protocols-and-interoperability)
 - [Systems Overview](/systems)
 
 ## Update Log
 
+- 2026-05-18: Major revision adding LLM-specific evaluation methodology, approach map, human-in-the-loop vs LLM-as-a-judge, and framework landscape.
 - 2026-04-21: Initial repo-native draft based on imported reference material and lab rewrite rules.
