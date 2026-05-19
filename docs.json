@@ -81,7 +81,6 @@
                 "group": "Ecosystem",
                 "pages": [
                   "ecosystem/index",
-                  "ecosystem/model-ecosystem-map",
                   "ecosystem/agent-frameworks",
                   "ecosystem/agent-platforms-and-low-code-builders"
                 ]
@@ -303,7 +302,6 @@
                 "group": "生态",
                 "pages": [
                   "zh-Hans/ecosystem/index",
-                  "zh-Hans/ecosystem/model-ecosystem-map",
                   "zh-Hans/ecosystem/agent-frameworks",
                   "zh-Hans/ecosystem/agent-platforms-and-low-code-builders"
                 ]
