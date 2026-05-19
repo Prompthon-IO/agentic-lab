@@ -21,6 +21,8 @@ options, hosted options, and clear guidance on who should care.
 
 ## Current pages
 
+- [Model Ecosystem Map](./model-ecosystem-map.mdx): a beginner map of model
+  providers, model categories, access patterns, and selection tradeoffs.
 - [Agent Frameworks](./agent-frameworks.mdx): a topic-first comparison of
   conversation-oriented, graph-oriented, and engineering-first frameworks.
 - [Agent Platforms And Low-Code Builders](./agent-platforms-and-low-code-builders.mdx):
