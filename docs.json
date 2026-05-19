@@ -82,7 +82,8 @@
                 "pages": [
                   "ecosystem/index",
                   "ecosystem/agent-frameworks",
-                  "ecosystem/agent-platforms-and-low-code-builders"
+                  "ecosystem/agent-platforms-and-low-code-builders",
+                  "ecosystem/ai-builder-tools-directory"
                 ]
               },
               {
@@ -303,7 +304,8 @@
                 "pages": [
                   "zh-Hans/ecosystem/index",
                   "zh-Hans/ecosystem/agent-frameworks",
-                  "zh-Hans/ecosystem/agent-platforms-and-low-code-builders"
+                  "zh-Hans/ecosystem/agent-platforms-and-low-code-builders",
+                  "zh-Hans/ecosystem/ai-builder-tools-directory"
                 ]
               },
               {
